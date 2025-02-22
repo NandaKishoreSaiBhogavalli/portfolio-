@@ -16,7 +16,6 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
   width: 100%;
   box-sizing: border-box;
 }
@@ -34,48 +33,33 @@ nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  transition: max-height 0.3s ease-in-out;
+  background-color: #333; /* Uniform background */
 }
 
 .nav-links li {
   margin: 10px;
+  flex: 1; /* Equal width for all boxes */
+  display: flex;
+  justify-content: center;
 }
 
 .nav-links li a {
   text-decoration: none;
   font-size: 18px;
   font-weight: bold;
-  padding: 10px 15px;
-  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  padding: 12px 20px;
   border-radius: 5px;
   display: block;
   color: white;
+  background-color: #444; /* Same color for all boxes */
+  text-align: center;
+  width: 100%;
+  transition: transform 0.2s ease-in-out, color 0.3s ease-in-out;
 }
-
-.nav-links li:nth-child(1) a { color: rgb(49, 47, 47); }
-.nav-links li:nth-child(2) a { color: rgb(49, 47, 47); }
-.nav-links li:nth-child(3) a { color: rgb(49, 47, 47); }
-.nav-links li:nth-child(4) a { color: rgb(49, 47, 47); }
-.nav-links li:nth-child(5) a { color: rgb(49, 47, 47); }
-.nav-links li:nth-child(6) a { color: rgb(49, 47, 47); }
 
 .nav-links li a:hover {
   transform: scale(1.1);
   text-decoration: underline;
-}
-
-/* Mobile Menu Button */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  z-index: 1000;
 }
 
 /* Sections */
@@ -131,57 +115,47 @@ section#contact a {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  header {
-      padding: 15px;
-  }
-  
-  .menu-toggle {
-      display: block;
-  }
-
   .nav-links {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      background: #333;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      padding: 10px 0;
-  }
-
-  .nav-links.show {
-      display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
   }
 
   .nav-links li {
-      margin: 5px 0;
+    width: 100%; /* Ensures all items are of equal width */
+    margin: 5px 0;
+  }
+
+  .nav-links li a {
+    font-size: 16px;
+    padding: 10px 15px;
   }
 
   section {
-      width: 95%;
-      padding: 30px 15px;
+    width: 95%;
+    padding: 30px 15px;
   }
 }
 
 @media (max-width: 480px) {
   h1 {
-      font-size: 18px;
+    font-size: 18px;
   }
 
-  .menu-toggle {
-      font-size: 20px;
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .nav-links li {
+    width: 100%; /* Equal width for all elements in mobile view */
   }
 
   .nav-links li a {
-      font-size: 16px;
+    font-size: 14px;
+    padding: 8px 12px;
   }
 
   header {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 10px;
+    padding: 10px;
   }
 }
